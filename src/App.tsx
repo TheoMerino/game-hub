@@ -1,12 +1,10 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import "./App.css";
+import { Button } from "@chakra-ui/react";
 
 function App() {
-
-  return (
-    <div></div>
-  )
+  return <Button colorScheme="blue">Toto</Button>;
 }
 
-export default App
+export default App;

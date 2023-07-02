@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
+import { CanceledError } from "axios";
 
 interface FetchGamesResponse {
   count: number;
@@ -19,9 +20,11 @@ const useGame = () => {
   useEffect(() => {
     const controller = new AbortController();
     apiClient
-      .get<FetchGamesResponse>("/games")
+      .get<FetchGamesResponse>("/games", { signal: controller.signal })
       .then((res) => setGames(res.data.results))
-      .catch((err) => setError(err.message));
+      .catch((err) => {
+        if (error instanceof CanceledError) setError(err.message);
+      });
 
     return () => controller.abort();
   }, []);

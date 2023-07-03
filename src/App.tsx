@@ -13,13 +13,11 @@ function App() {
       <GridItem area={"nav"}>
         <NavBar />
       </GridItem>
-      <GridItem area={"main"} bgColor={"twitter.500"}>
+      <GridItem area={"main"}>
         <GameGrid />
       </GridItem>
       <Show above="lg">
-        <GridItem area={"aside"} bgColor={"whatsapp.700"}>
-          Aside
-        </GridItem>
+        <GridItem area={"aside"}>Aside</GridItem>
       </Show>
     </Grid>
   );

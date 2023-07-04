@@ -16,8 +16,6 @@ interface Props {
 }
 
 const PlatformIconList = ({ platforms }: Props) => {
-  console.log(platforms);
-
   const iconMap: { [key: string]: IconType } = {
     playstation: BsPlaystation,
     xbox: BsXbox,
@@ -31,6 +29,7 @@ const PlatformIconList = ({ platforms }: Props) => {
     <HStack spacing={"5px"}>
       {platforms.map((platform) => (
         <Icon
+          key={platform.id}
           as={iconMap[platform.slug]}
           fontSize={"small"}
           color={"gray.500"}

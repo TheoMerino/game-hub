@@ -10,26 +10,33 @@ import {
 import { Game } from "../hooks/useGame";
 import PlatformIconList from "./PlatformIconList";
 import MetacriticBadge from "./MetacriticBadge";
+import getCroppedImageUrl from "../services/url-image";
 
 interface Props {
   game: Game;
 }
 
 const GameCard = ({ game }: Props) => {
+  const platforms = game.parent_platforms.map((pl) => pl.platform);
+  const { name, background_image, metacritic } = { ...game };
+
   return (
-    <Card borderRadius={"lg"} overflow={"hidden"} bgColor={"#202020"}>
+    <Card
+      borderRadius={"lg"}
+      overflow={"hidden"}
+      bgColor={"#202020"}
+      w={"350px"}
+    >
       <CardHeader p={0}>
-        <Image src={game.background_image} />
+        <Image src={getCroppedImageUrl(background_image)} />
       </CardHeader>
       <CardBody>
         <HStack justifyContent={"space-between"}>
-          <PlatformIconList
-            platforms={game.parent_platforms.map((pl) => pl.platform)}
-          />
-          <MetacriticBadge score={game.metacritic} />
+          <PlatformIconList platforms={platforms} />
+          <MetacriticBadge score={metacritic} />
         </HStack>
         <Text fontWeight={"bold"} fontSize={"2xl"}>
-          {game.name}
+          {name}
         </Text>
       </CardBody>
     </Card>

@@ -17,16 +17,13 @@ interface Props {
 }
 
 const GameCard = ({ game }: Props) => {
+  console.log(game);
+
   const platforms = game.parent_platforms.map((pl) => pl.platform);
   const { name, background_image, metacritic } = { ...game };
 
   return (
-    <Card
-      borderRadius={"lg"}
-      overflow={"hidden"}
-      bgColor={"#202020"}
-      w={"350px"}
-    >
+    <Card bgColor={"#202020"}>
       <CardHeader p={0}>
         <Image src={getCroppedImageUrl(background_image)} />
       </CardHeader>

@@ -14,6 +14,7 @@ export interface Game {
   parent_platforms: [{ platform: Platform }];
 }
 
-const useGames = () => useData<Game>("/games");
+const useGames = (genre?: string | null) =>
+  useData<Game>("/games", { params: { genres: genre } }, [genre]);
 
 export default useGames;

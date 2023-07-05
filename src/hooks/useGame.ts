@@ -25,7 +25,7 @@ export interface Game {
 
 const useGame = () => {
   const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState([]);
+  const [error, setError] = useState("");
   const [isLoading, setLoading] = useState(true);
 
   const handleResponse = (response: AxiosResponse<FetchGamesResponse>) => {
@@ -40,7 +40,8 @@ const useGame = () => {
       .get<FetchGamesResponse>("/games", { signal: controller.signal })
       .then(handleResponse)
       .catch((err) => {
-        if (error instanceof CanceledError) setError(err.message);
+        if (err instanceof CanceledError) return;
+        setError(err.message);
       });
 
     return () => controller.abort();

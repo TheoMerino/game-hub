@@ -17,8 +17,6 @@ interface Props {
 }
 
 const GameCard = ({ game }: Props) => {
-  console.log(game);
-
   const platforms = game.parent_platforms.map((pl) => pl.platform);
   const { name, background_image, metacritic } = { ...game };
 

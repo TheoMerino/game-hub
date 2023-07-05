@@ -1,8 +1,8 @@
 import useGenres from "../hooks/useGenres";
-import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Spinner, Text } from "@chakra-ui/react";
 
 const GenresList = () => {
-  const { data, error } = useGenres();
+  const { data, error, isLoading } = useGenres();
   return (
     <>
       <Text fontSize={"3xl"} fontWeight={"bold"}>
@@ -24,6 +24,7 @@ const GenresList = () => {
           );
         })}
       </List>
+      {isLoading && !error && <Spinner />}
     </>
   );
 };

@@ -21,7 +21,7 @@ const GameCard = ({ game }: Props) => {
   const { name, background_image, metacritic } = { ...game };
 
   return (
-    <Card bgColor={"gray.700"}>
+    <Card>
       <CardHeader p={0}>
         <Image src={getCroppedImageUrl(background_image)} />
       </CardHeader>

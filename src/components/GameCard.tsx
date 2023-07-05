@@ -7,7 +7,7 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
-import { Game } from "../hooks/useGame";
+import { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import MetacriticBadge from "./MetacriticBadge";
 import getCroppedImageUrl from "../services/url-image";

@@ -1,5 +1,5 @@
 import React from "react";
-import useGenre from "../hooks/useGenre";
+import useGenres from "../hooks/useGenres";
 import {
   Avatar,
   Box,
@@ -11,14 +11,14 @@ import {
 } from "@chakra-ui/react";
 
 const GenresList = () => {
-  const { genres, error } = useGenre();
+  const { data, error } = useGenres();
   return (
     <Box p={"0px 20px"}>
       <Text fontSize={"3xl"} fontWeight={"bold"}>
         Genres
       </Text>
       <List spacing={2}>
-        {genres.map((genre) => {
+        {data.map((genre) => {
           return (
             <ListItem key={genre.id}>
               <HStack>

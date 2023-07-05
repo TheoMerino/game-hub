@@ -1,19 +1,10 @@
-import React from "react";
 import useGenres from "../hooks/useGenres";
-import {
-  Avatar,
-  Box,
-  HStack,
-  Image,
-  List,
-  ListItem,
-  Text,
-} from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 
 const GenresList = () => {
   const { data, error } = useGenres();
   return (
-    <Box p={"0px 20px"}>
+    <>
       <Text fontSize={"3xl"} fontWeight={"bold"}>
         Genres
       </Text>
@@ -33,7 +24,7 @@ const GenresList = () => {
           );
         })}
       </List>
-    </Box>
+    </>
   );
 };
 

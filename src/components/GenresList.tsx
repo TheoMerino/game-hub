@@ -10,8 +10,8 @@ import {
 } from "@chakra-ui/react";
 
 interface Props {
-  onSelectGenre: (genre: string) => void;
-  selectedGenre: string | null;
+  onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
 const GenresList = ({ selectedGenre, onSelectGenre }: Props) => {
@@ -24,7 +24,7 @@ const GenresList = ({ selectedGenre, onSelectGenre }: Props) => {
       <List spacing={2}>
         {data.map((genre) => {
           return (
-            <ListItem key={genre.id} onClick={() => onSelectGenre(genre.slug)}>
+            <ListItem key={genre.id} onClick={() => onSelectGenre(genre)}>
               <HStack>
                 <Image
                   src={genre.image_background}
@@ -33,7 +33,9 @@ const GenresList = ({ selectedGenre, onSelectGenre }: Props) => {
                 />
                 <Button
                   variant={"link"}
-                  fontWeight={selectedGenre === genre.slug ? "bold" : "normal"}
+                  fontWeight={
+                    selectedGenre?.slug === genre.slug ? "bold" : "normal"
+                  }
                 >
                   {genre.name}
                 </Button>

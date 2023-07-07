@@ -13,6 +13,7 @@ export interface GameQuery {
   genre: Genre | null;
   platform: Platform | null;
   sort: Sort | null;
+  search: string | null;
 }
 
 function App() {
@@ -24,7 +25,11 @@ function App() {
       templateColumns={{ base: "1fr", lg: "200px 1fr" }}
     >
       <GridItem area={"nav"}>
-        <NavBar />
+        <NavBar
+          onSearch={(search: string) =>
+            setGameQuery({ ...gameQuery, search: search })
+          }
+        />
       </GridItem>
       <GridItem area={"main"}>
         <HStack marginBottom={5} spacing={4}>

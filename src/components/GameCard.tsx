@@ -22,9 +22,7 @@ const GameCard = ({ game }: Props) => {
   return (
     <Card>
       <CardHeader p={0}>
-        {background_image && (
-          <Image src={getCroppedImageUrl(background_image)} />
-        )}
+        <Image src={getCroppedImageUrl(background_image)} />
       </CardHeader>
       <CardBody>
         <HStack justifyContent={"space-between"}>

@@ -13,8 +13,8 @@ const Emoji = ({ rating }: Props) => {
     4: { src: thumbsUp, alt: "good", boxSize: "20px" },
     5: { src: bullsEye, alt: "awesome", boxSize: "30px" },
   };
-
-  return rating > 2 && <Image {...emojis[rating]} />;
+  if (rating < 3) return null;
+  return <Image {...emojis[rating]} />;
 };
 
 export default Emoji;

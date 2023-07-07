@@ -2,6 +2,7 @@ import useGenres, { Genre } from "../hooks/useGenres";
 import {
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
@@ -18,9 +19,9 @@ const GenresList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data, error, isLoading } = useGenres();
   return (
     <>
-      <Text fontSize={"3xl"} fontWeight={"bold"}>
+      <Heading fontSize={"2xl"} fontWeight={"bold"} marginBottom={3}>
         Genres
-      </Text>
+      </Heading>
       <List spacing={2}>
         {data.map((genre) => {
           return (
@@ -30,12 +31,15 @@ const GenresList = ({ selectedGenre, onSelectGenre }: Props) => {
                   src={genre.image_background}
                   boxSize={"35px"}
                   borderRadius={"md"}
+                  objectFit="cover"
                 />
                 <Button
                   variant={"link"}
                   fontWeight={
                     selectedGenre?.slug === genre.slug ? "bold" : "normal"
                   }
+                  whiteSpace="normal"
+                  textAlign="left"
                 >
                   {genre.name}
                 </Button>

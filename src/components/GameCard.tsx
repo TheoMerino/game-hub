@@ -10,6 +10,7 @@ import { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import MetacriticBadge from "./MetacriticBadge";
 import getCroppedImageUrl from "../services/url-image";
+import Emoji from "./Emoji";
 
 interface Props {
   game: Game;
@@ -32,6 +33,7 @@ const GameCard = ({ game }: Props) => {
         <Text fontWeight={"bold"} fontSize={"2xl"}>
           {name}
         </Text>
+        <Emoji rating={game.rating_top} />
       </CardBody>
     </Card>
   );
